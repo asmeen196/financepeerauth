@@ -1,0 +1,60 @@
+#header {
+    height: 3rem;
+    background: darkcyan;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+
+#addFileInput, #sendFileBtn, #cancelFileSendBtn, #closePopup {
+    display: none;
+}
+
+#addBtn {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    background-color: blue;
+    text-align: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 3rem;
+}
+
+#addBtnText {
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+#fileUploadPopup {
+    background-color: rgb(175, 206, 154);
+    display: flex;
+    position: absolute;
+    height: 10rem;
+    width: 20rem;
+    justify-content: space-around;
+    left: 33vw;
+    flex-direction: column;
+    top: 40%;
+    border-radius: 2rem;
+    padding-inline: 2rem;
+}
+
+#cancelFileSendTxt {
+    cursor: pointer;
+    background-color: red;
+    height: 12%;
+    align-self: start;
+    padding: 0.8rem;
+}
+
+#sendFileBtnTxt, #closePopupTxt {
+    cursor: pointer;
+    background-color: blue;
+    height: 12%;
+    align-self: end;
+    padding: 0.8rem;
+    margin-left: 1rem;
+}

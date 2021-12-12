@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes , Route } from 'react-router-dom';
+import Home from './components/Home';
+import LoginPage from './components/Login';
+import RegisterPage from './components/Register';
+import UserDetailContext from './components/userDetailContext';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+const App = props => {
+  const [APIToken, setAPIToken] = React.useState('')
+  const [username, setUsername] = React.useState('')
+  const [password, setPassword] = React.useState('')
+  const [email, setEmail] = React.useState('')
+return (
+  <UserDetailContext.Provider value = {{email: [email, setEmail], username: [username, setUsername], password:[password, setPassword], auth: [APIToken, setAPIToken]}}>
+    <BrowserRouter>
+      <Routes >
+        <Route exact path="/" element={<LoginPage />} />
+        <Route  exact path="/users">
+          <Route exact path="/users/register" element={<RegisterPage />} />
+          <Route exact path="/users/home" element={<Home APIToken={APIToken}/>} />
+        </Route>
+      </Routes >
+    </BrowserRouter>
+    </UserDetailContext.Provider>
+);
 }
+
 
 export default App;
